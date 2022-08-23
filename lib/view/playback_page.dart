@@ -90,6 +90,7 @@ class _PlayBackPageState extends State<PlayBackPage>
             ],
           ),
         ),
+
         body: SafeArea(
           child: Container(
             child: Column(
