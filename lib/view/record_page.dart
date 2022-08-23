@@ -32,10 +32,14 @@ class _RecordPageState extends State<RecordPage> with WidgetsBindingObserver {
     _initialiseControllers();
   }
 
+
+
   void _getDir() async {
     appDirectory = await getApplicationDocumentsDirectory();
     _preparePlayers();
     path = "${appDirectory.path}/music.aac";
+    print('check: path on _getDir is $path');
+
   }
 
   Future<ByteData> _loadAsset(String path) async {
@@ -117,7 +121,7 @@ class _RecordPageState extends State<RecordPage> with WidgetsBindingObserver {
             ),
             const SizedBox(width: 10),
             const Text(
-              'Flutter Task',
+              'Record & Save',
               style: TextStyle(
                 color: Color(
                   0xff3a7fbb,
@@ -145,15 +149,19 @@ class _RecordPageState extends State<RecordPage> with WidgetsBindingObserver {
     );
   }
 
-
-
   void _startOrStopRecording() async {
     if (isRecording) {
       recorderController.reset();
       final path = await recorderController.stop(false);
       if (path != null) await playerController5.preparePlayer(path);
-     // Navigator.pushNamed(context, PlayBackPage.id);
-      Navigator.push(context, MaterialPageRoute(builder: (context)=>PlayBackPage(playerController: playerController5,)));
+      print('check: path is $path');
+      // Navigator.pushNamed(context, PlayBackPage.id);
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => PlayBackPage(playerController: playerController5,
+              patha: path,
+                  )));
     } else {
       await recorderController.record(path);
     }

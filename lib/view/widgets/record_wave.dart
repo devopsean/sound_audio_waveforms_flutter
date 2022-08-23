@@ -1,4 +1,3 @@
-
 import 'package:audio_waveforms/audio_waveforms.dart';
 import 'package:flutter/material.dart';
 
@@ -27,7 +26,7 @@ class WaveBubble extends StatelessWidget {
         margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
-          color: const Color(0xFF276bfd),
+          color: const Color(0xff207abf),
         ),
         child: Row(
           mainAxisSize: MainAxisSize.min,
@@ -57,4 +56,3 @@ class WaveBubble extends StatelessWidget {
     );
   }
 }
-
