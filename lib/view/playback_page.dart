@@ -90,10 +90,10 @@ class _PlayBackPageState extends State<PlayBackPage>
             ],
           ),
         ),
-
         body: SafeArea(
           child: Container(
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 //  Text('${widget.playerController!.playerState}'),
                 WaveBubble(
@@ -102,6 +102,13 @@ class _PlayBackPageState extends State<PlayBackPage>
                       PlayerState.playing,
                   onTap: () => _playOrPlausePlayer(widget.playerController!),
                 ),
+
+                TextButton(
+                    onPressed: () {
+                      Navigator.of(context).pushNamedAndRemoveUntil(
+                          RecordPage.id, (route) => false);
+                    },
+                    child: Text('Back'))
                 //    Text('${controlla!.playerState}'),
                 // WaveBubble(
                 //   playerController: controlla!,

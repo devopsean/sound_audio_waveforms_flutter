@@ -17,7 +17,7 @@ class WaveBubble extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: Alignment.centerRight,
+      alignment: Alignment.center,
       child: Container(
         padding: EdgeInsets.only(
           bottom: 6,
